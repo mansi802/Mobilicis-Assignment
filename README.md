@@ -1,4 +1,5 @@
 The Backend APIs are as follows -
+
 /api/filter1 - filters the users which have income lower than $5 USD and have a car of brand “BMW” or “Mercedes”.
 
 /api/filter2 - filters the users which are male and which have phone price greater than 10,000.
