@@ -2,23 +2,14 @@ const express = new require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 require("./importData");
-const PORT = 5000;
+const PORT = 5000 || process.env.PORT;
 const router = require("./Routes");
-
-const username = "mansisingla802";
-const password = "FOwXmG59KNBUpqpf";
-const databaseName = "Mobilicis";
-
-const DB =
-  "mongodb+srv://mansisingla802:" +
-  password +
-  "@cluster0.abx5cpp.mongodb.net/" +
-  databaseName +
-  "?retryWrites=true&w=majority";
+dotenv.config();
 
 mongoose
-  .connect(DB)
+  .connect(process.env.MONGO_URL)
   .then(() => console.log("DB connected"))
   .catch((err) => console.log(err));
 
